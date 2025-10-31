@@ -1,0 +1,47 @@
+/* ... 위 기존 코드 동일 ... */
+
+/* Fade-in 효과 */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 맨 위로 버튼 */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #238636;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+#topBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#topBtn:hover {
+  background: #2ea043;
+}
+
+/* 활성 메뉴 */
+nav a.active {
+  color: #ffffff;
+  text-decoration: underline;
+}
