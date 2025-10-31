@@ -1,6 +1,168 @@
-/* ... 위 기존 코드 동일 ... */
+/* ===============================
+   기본 설정
+================================= */
+* {
+  box-sizing: border-box;
+}
 
-/* Fade-in 효과 */
+body {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  margin: 0;
+  background-color: #0d1117;
+  color: #e6edf3;
+  line-height: 1.6;
+}
+
+/* ===============================
+   헤더
+================================= */
+header {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80')
+    center/cover no-repeat;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+header .overlay {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* ===============================
+   네비게이션
+================================= */
+nav {
+  background: #161b22;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #30363d;
+}
+
+nav a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #79c0ff;
+}
+
+/* 활성 메뉴 표시 */
+nav a.active {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ===============================
+   메인 & 섹션 카드
+================================= */
+main {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #58a6ff;
+}
+
+h2 {
+  color: #58a6ff;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+ul li {
+  margin: 0.5rem 0;
+}
+
+/* ===============================
+   활동 카드 그리드
+================================= */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.activity {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+
+.activity h3 {
+  color: #79c0ff;
+  margin-bottom: 0.5rem;
+}
+
+/* ===============================
+   버튼 스타일
+================================= */
+.btn {
+  display: inline-block;
+  background: #238636;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #2ea043;
+}
+
+/* ===============================
+   Fade-in 애니메이션
+================================= */
 .fade {
   opacity: 0;
   transform: translateY(20px);
@@ -12,7 +174,9 @@
   transform: translateY(0);
 }
 
-/* 맨 위로 버튼 */
+/* ===============================
+   맨 위로 버튼
+================================= */
 #topBtn {
   position: fixed;
   bottom: 30px;
@@ -29,6 +193,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #topBtn.show {
@@ -40,8 +205,40 @@
   background: #2ea043;
 }
 
-/* 활성 메뉴 */
-nav a.active {
-  color: #ffffff;
-  text-decoration: underline;
+/* ===============================
+   푸터
+================================= */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #8b949e;
+  border-top: 1px solid #30363d;
+}
+
+/* ===============================
+   반응형 (모바일)
+================================= */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  #topBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
 }
